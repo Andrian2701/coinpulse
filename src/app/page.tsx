@@ -1,5 +1,9 @@
+import { TrendingCoinsTable } from "@/components";
+
 export default function Home() {
   return (
-    <h1>coin pulse</h1>
+    <main className="flex items-center justify-start">
+      <TrendingCoinsTable />
+    </main>
   );
 }

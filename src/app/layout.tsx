@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 
 import { Header } from "@/components";
 import "./globals.css";
+import { ReactQueryProvider } from "@/lib/react-query-provider";
 
 export const metadata: Metadata = {
   title: "CoinPulse",
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} box-border min-h-screen px-8 py-4 sm:px-16 sm:py-8`}
+        className={`${roboto.className} box-border min-h-screen px-8 py-4 sm:px-16 sm:py-8 flex flex-col gap-10`}
       >
-        <Header />
-        {children}
+        <ReactQueryProvider>
+          <Header />
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
