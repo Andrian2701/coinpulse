@@ -1,9 +1,23 @@
-import { TrendingCoinsTable } from "@/components";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
-export default function Home() {
+import { GlobalsList, TrendingCoinsTable } from "@/components";
+import { coinsService } from "@/services/coins-service";
+import { getQueryClient } from "@/utils/get-query-client";
+
+export default async function Home() {
+  const queryClient = getQueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ["coins", "globals"],
+    queryFn: () => coinsService.getGlobals(),
+  })
+
   return (
-    <main className="flex items-center justify-start">
-      <TrendingCoinsTable />
-    </main>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <main className="flex flex-col gap-6">
+        <GlobalsList />
+        <TrendingCoinsTable />
+      </main>
+    </HydrationBoundary>
   );
 }

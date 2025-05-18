@@ -10,3 +10,11 @@ export interface CoinInterface {
     };
   };
 }
+
+export interface GlobalsInterface {
+  market_cap_percentage: {
+    btc: number;
+    eth: number;
+    usdt: number;
+  };
+}
