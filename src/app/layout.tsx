@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} box-border min-h-screen px-6 py-4 sm:px-16 sm:py-8 flex flex-col gap-10`}
+        className={`${roboto.className} box-border min-h-screen px-6 py-6 sm:px-16 sm:py-8 flex flex-col gap-6`}
       >
         <ReactQueryProvider>
           <Header />
