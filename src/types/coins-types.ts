@@ -1,4 +1,4 @@
-export interface CoinInterface {
+export interface TrendingCoinInterface {
   coin_id: number;
   small: string;
   name: string;
@@ -17,4 +17,25 @@ export interface GlobalsInterface {
     eth: number;
     usdt: number;
   };
+}
+
+export interface CoinInterface {
+  id: string;
+  image: string;
+  name: string;
+  symbol: string;
+}
+
+export type CoinPriceType = [number, number];
+
+export enum TimeRange {
+  day = 1,
+  week = 7,
+  month = 30,
+  year = 365,
+}
+
+export interface CoinPriceParamsInterface {
+  coin: string;
+  days: TimeRange;
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import SlotCounter from 'react-slot-counter';
+import CountUp from 'react-countup';
 
 import { useGlobals } from "@/hooks/use-globals"
 
@@ -15,11 +15,7 @@ export const GlobalsList = () => {
                 <div className="flex flex-col gap-4">
                     <span className="text-gray text-[12px]">Bitcoin (BTC)</span>
                     <span className="text-[16px] font-bold text-black">
-                        <SlotCounter
-                            direction="top-down"
-                            value={`${data?.market_cap_percentage.btc.toFixed(2)}%`}
-                            animateOnVisible={{ triggerOnce: true, }}
-                        />
+                        <CountUp start={0.00} end={Number(data?.market_cap_percentage.btc)} decimals={2} suffix=" %" />
                     </span>
                 </div>
             </div>
@@ -28,11 +24,7 @@ export const GlobalsList = () => {
                 <div className="flex flex-col gap-4">
                     <span className="text-gray text-[12px]">Ethereum (ETH)</span>
                     <span className="text-[16px] font-bold text-black">
-                        <SlotCounter
-                            direction="top-down"
-                            value={`${data?.market_cap_percentage.eth.toFixed(2)}%`}
-                            animateOnVisible={{ triggerOnce: true, }}
-                        />
+                        <CountUp start={0.00} end={Number(data?.market_cap_percentage.eth)} decimals={2} suffix=" %" />
                     </span>
                 </div>
             </div>
@@ -41,11 +33,7 @@ export const GlobalsList = () => {
                 <div className="flex flex-col gap-4">
                     <span className="text-gray text-[12px]">Tether (USDT)</span>
                     <span className="text-[16px] font-bold text-black">
-                        <SlotCounter
-                            direction="top-down"
-                            value={`${data?.market_cap_percentage.usdt.toFixed(2)}%`}
-                            animateOnVisible={{ triggerOnce: true, }}
-                        />
+                        <CountUp start={0.00} end={Number(data?.market_cap_percentage.usdt)} decimals={2} suffix=" %" />
                     </span>
                 </div>
             </div>

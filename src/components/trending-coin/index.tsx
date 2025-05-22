@@ -6,11 +6,30 @@ import {
     TableCell,
     TableRow,
 } from "@/components/ui/table"
-import { roundCoinPrice } from "@/utils/round-coin-price"
-import { roundCoinTotalVolume } from "@/utils/round-coin-total-volume"
-import { CoinInterface } from "@/types/coins-types"
+import { TrendingCoinInterface } from "@/types/coins-types"
 
-export const TrendingCoin = ({ data }: { data: CoinInterface }) => {
+export const TrendingCoin = ({ data }: { data: TrendingCoinInterface }) => {
+    const roundCoinPrice = (price: number) => {
+        return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            maximumFractionDigits: 1,
+        }).format(price);
+    };
+
+    const roundCoinTotalVolume = (volume: string) => {
+        const volumeToNum = Number(volume.replace(/[^0-9.-]+/g, ""));
+
+        return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "compact",
+            compactDisplay: "short",
+            maximumFractionDigits: 1,
+        }).format(volumeToNum);
+    };
+
+
     return (
         <TableRow className="h-14">
             <TableCell className="flex items-center gap-2 whitespace-nowrap">

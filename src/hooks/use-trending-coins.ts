@@ -7,7 +7,6 @@ export const useTrendingCoins = () => {
     queryKey: ["coins", "trending-list"],
     queryFn: () => coinsService.getTrendingCoins(),
     select: (data) => data?.map((coin) => ({ ...coin.item })),
-    refetchInterval: 10 * 60 * 1000,
     refetchOnWindowFocus: true,
   });
 };

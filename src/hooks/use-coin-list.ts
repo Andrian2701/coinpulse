@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { coinsService } from "@/services/coins-service";
 
-export const useGlobals = () => {
+export const useCoinList = () => {
   return useQuery({
-    queryKey: ["coins", "globals"],
-    queryFn: () => coinsService.getGlobals(),
+    queryKey: ["coins", "list"],
+    queryFn: () => coinsService.getCoinList(),
     refetchOnWindowFocus: true,
   });
 };
