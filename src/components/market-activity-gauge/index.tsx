@@ -12,10 +12,10 @@ interface VolumeMarketCapSectors {
 }
 
 const RADIAN = Math.PI / 180;
-const cx = 75;
-const cy = 75;
-const iR = 20;
-const oR = 35;
+const cx = 95;
+const cy = 95;
+const iR = 60;
+const oR = 65;
 const maxValue = 10;
 
 const data: VolumeMarketCapSectors[] = [
@@ -57,10 +57,10 @@ export const MarketActivityGauge = () => {
     };
 
     return (
-        <div className='w-full flex flex-col lg:gap-24 border border-border rounded-lg p-4'>
+        <div className='w-full flex flex-col lg:gap-15 lg:h-[408px] border border-border rounded-lg p-4 flex-1'>
             <TableHeading>Volume/MarketCap</TableHeading>
             <div className='flex flex-col items-center justify-center w-full'>
-                <PieChart width={150} height={100}>
+                <PieChart width={200} height={150}>
                     <Pie
                         dataKey="value"
                         startAngle={180}
@@ -79,8 +79,9 @@ export const MarketActivityGauge = () => {
                     </Pie>
                     {needle(value, data, cx, cy, iR, oR, '#5c5c61')}
                 </PieChart>
-                <span className='text-[12px] text-text-primary font-light'>
+                <span className='text-[16px] text-text-primary font-light flex flex-col justify-center items-center gap-2'>
                     {value.toFixed(1)}%
+                    <span className='text-[12px] text-text-secondary font-light'>Shows how actively a market is trading relative to its size</span>
                 </span>
             </div>
         </div>

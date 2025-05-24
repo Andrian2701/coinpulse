@@ -10,10 +10,7 @@ export default async function Home() {
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
         <TrendingCoinsTable />
-        <div className="flex flex-col lg:flex-row md:flex-1 gap-6 lg:h-[408px]">
-          <MarketActivityGauge />
-          <MarketActivityGauge />
-        </div>
+        <MarketActivityGauge />
       </div>
     </main>
   );
