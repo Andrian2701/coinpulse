@@ -24,7 +24,7 @@ export const TrendingCoinsTable = () => {
     const { data } = useTrendingCoins()
 
     return (
-        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full md:w-[60%] border border-light-gray rounded-lg p-4">
+        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full lg:w-[60%] border border-light-gray rounded-lg p-4">
             <Table>
                 <TableCaption>Trending List</TableCaption>
                 <TableHeader>

@@ -17,6 +17,12 @@ export interface GlobalsInterface {
     eth: number;
     usdt: number;
   };
+  total_market_cap: {
+    usd: number;
+  };
+  total_volume: {
+    usd: number;
+  };
 }
 
 export interface CoinInterface {
@@ -38,4 +44,11 @@ export enum TimeRange {
 export interface CoinPriceParamsInterface {
   coin: string;
   days: TimeRange;
+}
+
+export interface NewArticleInterface {
+  article_id: string;
+  image_url: string;
+  pubDate: Date;
+  title: string;
 }

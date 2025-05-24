@@ -11,7 +11,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
-import { CoinSelect, TimeRangeToggle } from "..";
+import { CoinSelect, TableHeading, TimeRangeToggle } from "..";
 import { useCoinList } from "@/hooks/use-coin-list";
 import { useFormattedCoinPrices } from "@/hooks/use-format-coin-price";
 import { useCoinPrice } from "@/hooks/use-coin-price";
@@ -40,7 +40,7 @@ export const CoinPriceChart = () => {
     };
 
     return (
-        <div className="w-full md:w-[60%] border border-light-gray rounded-lg p-4 flex flex-col gap-4">
+        <div className="w-full lg:w-[60%] border border-light-gray rounded-lg p-4 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-2 sm:gap-4 w-full">
                 <TimeRangeToggle timeRange={timeRange} setTimeRange={setTimeRange} />
                 <CoinSelect selectedCoinId={selectedCoinId} setSelectedCoinId={setSelectedCoinId} coinList={coinList ?? []} />
@@ -75,9 +75,7 @@ export const CoinPriceChart = () => {
                     <Area type="monotone" dataKey="price" stroke="#ff3b30" fill="#ff3b301a" />
                 </AreaChart>
             </ResponsiveContainer>
-            <span className="text-gray font-light text-[14px] flex justify-center">
-                Price Analytics
-            </span>
+            <TableHeading align="center">Price Analytics</TableHeading>
         </div>
     )
 }

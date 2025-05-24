@@ -5,7 +5,9 @@ import {
   CoinInterface,
   CoinPriceType,
   CoinPriceParamsInterface,
+  NewArticleInterface,
 } from "@/types/coins-types";
+import axios from "axios";
 
 class CoinsService {
   async getTrendingCoins(): Promise<{ item: TrendingCoinInterface }[] | null> {
@@ -52,6 +54,19 @@ class CoinsService {
       );
 
       return res.status === 200 ? res.data.prices : null;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  async getNews(): Promise<NewArticleInterface[] | null> {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL_NDIO}?apikey=${process.env.NEXT_PUBLIC_API_KEY_NDIO}&q=crypto&language=en`
+      );
+
+      return res.status === 200 ? res.data.results : null;
     } catch (error) {
       console.error(error);
       return null;

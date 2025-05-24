@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 
 import { useGlobals } from "@/hooks/use-globals"
 
-export const GlobalsList = () => {
+export const MarketShareList = () => {
     const { data } = useGlobals()
 
     return (

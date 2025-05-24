@@ -13,7 +13,10 @@ export const useFormattedCoinPrices = (
   coinPrice?.forEach(([timestamp, price]) => {
     switch (timeRange) {
       case TimeRange.day:
-        formatedTime = `${new Date(timestamp).getUTCHours()} H`;
+        formatedTime = `${new Date(timestamp).toLocaleTimeString([], {
+          hour: "2-digit",
+          hour12: false,
+        })} H`;
         break;
       case TimeRange.week:
         formatedTime = new Date(timestamp).toLocaleDateString("en-US", {
