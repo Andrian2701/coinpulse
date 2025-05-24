@@ -40,7 +40,7 @@ export const MarketActivityGauge = () => {
         const length = (iR + 2 * oR) / 3;
         const sin = Math.sin(-RADIAN * ang);
         const cos = Math.cos(-RADIAN * ang);
-        const r = 5;
+        const r = 2;
         const x0 = cx + 5;
         const y0 = cy + 5;
         const xba = x0 + r * sin;
@@ -57,7 +57,7 @@ export const MarketActivityGauge = () => {
     };
 
     return (
-        <div className='w-full flex flex-col lg:gap-24 border border-light-gray rounded-lg p-4'>
+        <div className='w-full flex flex-col lg:gap-24 border border-border rounded-lg p-4'>
             <TableHeading>Volume/MarketCap</TableHeading>
             <div className='flex flex-col items-center justify-center w-full'>
                 <PieChart width={150} height={100}>
@@ -79,7 +79,7 @@ export const MarketActivityGauge = () => {
                     </Pie>
                     {needle(value, data, cx, cy, iR, oR, '#5c5c61')}
                 </PieChart>
-                <span className='text-[12px] text-black font-light'>
+                <span className='text-[12px] text-text-primary font-light'>
                     {value.toFixed(1)}%
                 </span>
             </div>

@@ -25,7 +25,7 @@ export const CoinSelect = ({ selectedCoinId, setSelectedCoinId, coinList }: Prop
 
     return (
         <Select value={selectedCoinId} onValueChange={(value) => setSelectedCoinId(value)}>
-            <SelectTrigger className="w-full sm:w-[125px] border border-light-gray cursor-pointer">
+            <SelectTrigger className="w-full sm:w-[125px] border border-border cursor-pointer">
                 <SelectValue>
                     {selectedCoin && (
                         <span className="flex items-center gap-2">

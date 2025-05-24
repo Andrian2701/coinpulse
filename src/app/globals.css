@@ -1,10 +1,19 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-black: #2c2c2e;
-  --color-white: #fff;
-  --color-gray: #5c5c61;
-  --color-light-gray: #e5e7eb;
-  --color-red: #ff3b30;
+  --color-background: #fff;
+  --color-text-primary: #0f0f0f;
+  --color-text-secondary: #5c5c61;
+  --color-border: #e5e7eb;
+}
+
+@layer theme {
+  .dark {
+    --color-background: #0f0f0f;
+    --color-text-primary: #fff;
+    --color-text-secondary: #5c5c61;
+    --color-border: #5c5c61;
+  }
 }

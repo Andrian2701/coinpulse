@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google'
 import { Header } from "@/components";
 import { ReactQueryProvider } from "@/lib/react-query-provider";
 import "./globals.css";
+import { ThemeProvider } from "@/lib/theme-provider";
 
 export const metadata: Metadata = {
   title: "Coinpulse",
@@ -20,15 +21,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${roboto.className} box-border min-h-screen px-6 py-6 sm:px-16 sm:py-8 flex flex-col gap-6`}
-      >
-        <ReactQueryProvider>
-          <Header />
-          {children}
-        </ReactQueryProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <div className={`${roboto.className} box-border min-h-screen px-6 py-6 sm:px-16 sm:py-8 flex flex-col gap-6 bg-background`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ReactQueryProvider>
+              <Header />
+              {children}
+            </ReactQueryProvider>
+          </ThemeProvider >
+        </div>
       </body>
-    </html>
+    </html >
   );
 }

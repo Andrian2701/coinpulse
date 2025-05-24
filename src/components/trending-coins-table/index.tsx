@@ -24,7 +24,7 @@ export const TrendingCoinsTable = () => {
     const { data } = useTrendingCoins()
 
     return (
-        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full lg:w-[60%] border border-light-gray rounded-lg p-4">
+        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full lg:w-[60%] border border-border rounded-lg p-4">
             <Table>
                 <TableCaption>Trending List</TableCaption>
                 <TableHeader>
@@ -48,7 +48,7 @@ export const TrendingCoinsTable = () => {
                     </TableBody>
                 </CollapsibleContent>
             </Table>
-            <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-black">
+            <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary">
                 {isOpen ? "less" : "more"}
             </CollapsibleTrigger>
         </Collapsible>

@@ -7,7 +7,7 @@ interface Props {
 
 export const TableHeading = ({ children, align = "start" }: Props) => {
     return (
-        <span className={`text-gray font-light text-[14px] ${align === "center" ? "flex justify-center" : ""}`}>
+        <span className={`text-text-secondary font-light text-[14px] ${align === "center" ? "flex justify-center" : ""}`}>
             {children}
         </span>
     )

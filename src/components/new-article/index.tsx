@@ -22,9 +22,9 @@ export const NewArticle = ({ data }: { data: NewArticleInterface }) => {
 
                 />
             </div>
-            <div className="flex flex-col border-b border-b-light-gray p-2 [@media(max-width:400px)]:w-full flex-1">
-                <span className="font-bold text-black text-[10px]">{formatDate(data.pubDate)}</span>
-                <span className="font-light text-gray text-[12px] line-clamp-2 max-h-[36px]">
+            <div className="flex flex-col border-b border-b-border p-2 [@media(max-width:400px)]:w-full flex-1">
+                <span className="font-bold text-text-primary text-[10px]">{formatDate(data.pubDate)}</span>
+                <span className="font-light text-text-secondary text-[12px] line-clamp-2 max-h-[36px]">
                     {data.title}
                 </span>
             </div>

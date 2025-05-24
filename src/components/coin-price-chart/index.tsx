@@ -40,7 +40,7 @@ export const CoinPriceChart = () => {
     };
 
     return (
-        <div className="w-full lg:w-[60%] border border-light-gray rounded-lg p-4 flex flex-col gap-4">
+        <div className="w-full lg:w-[60%] border border-border rounded-lg p-4 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-2 sm:gap-4 w-full">
                 <TimeRangeToggle timeRange={timeRange} setTimeRange={setTimeRange} />
                 <CoinSelect selectedCoinId={selectedCoinId} setSelectedCoinId={setSelectedCoinId} coinList={coinList ?? []} />

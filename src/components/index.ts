@@ -8,6 +8,7 @@ import { NewsFeed } from "./news-feed";
 import { TableHeading } from "./table-heading";
 import { NewArticle } from "./new-article";
 import { MarketActivityGauge } from "./market-activity-gauge";
+import { ThemeSwitch } from "./theme-switch";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   TableHeading,
   NewArticle,
   MarketActivityGauge,
+  ThemeSwitch,
 };
