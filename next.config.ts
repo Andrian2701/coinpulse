@@ -1,9 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["coin-images.coingecko.com"],
+    domains: ['coin-images.coingecko.com'],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

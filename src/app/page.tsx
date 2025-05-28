@@ -1,4 +1,10 @@
-import { CoinPriceChart, MarketActivityGauge, MarketShareList, NewsFeed, TrendingCoinsTable } from "@/components";
+import {
+  CoinPriceChart,
+  MarketActivityGauge,
+  MarketShareList,
+  NewsFeed,
+  TrendingCoinsTable,
+} from '@/components'
 
 export default async function Home() {
   return (
@@ -13,5 +19,5 @@ export default async function Home() {
         <MarketActivityGauge />
       </div>
     </main>
-  );
+  )
 }
