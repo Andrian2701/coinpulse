@@ -1,0 +1,29 @@
+name: Lint/Prettier Check
+
+on:
+  pull_request:
+    branches: [stage, deploy]
+  push:
+    branches: [stage, deploy]
+
+jobs:
+  lint-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run format
