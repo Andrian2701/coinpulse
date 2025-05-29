@@ -1,10 +1,4 @@
-import {
-  CoinPriceChart,
-  MarketActivityGauge,
-  MarketShareList,
-  NewsFeed,
-  TrendingCoinsTable,
-} from '@/components'
+import { CoinPriceChart, MarketShareList, NewsFeed, TrendingCoinsTable } from '@/components'
 
 export default async function Home() {
   return (
@@ -16,7 +10,6 @@ export default async function Home() {
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
         <TrendingCoinsTable />
-        <MarketActivityGauge />
       </div>
     </main>
   )
