@@ -8,6 +8,7 @@ import { NewsFeed } from './news-feed'
 import { TableHeading } from './table-heading'
 import { NewArticle } from './new-article'
 import { ThemeSwitch } from './theme-switch'
+import { ErrorMessage } from './error-message'
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   TableHeading,
   NewArticle,
   ThemeSwitch,
+  ErrorMessage,
 }

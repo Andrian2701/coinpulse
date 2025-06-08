@@ -6,6 +6,7 @@ import {
   Table,
   TableBody,
   TableCaption,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
@@ -13,11 +14,13 @@ import {
 import { useTrendingCoins } from '@/hooks/use-trending-coins'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import { TrendingCoin } from '../trending-coin'
+import { Spinner } from '../ui/spinner'
+import { ErrorMessage } from '../error-message'
 
 export const TrendingCoinsTable = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const { data } = useTrendingCoins()
+  const { data, isPending, isError } = useTrendingCoins()
 
   return (
     <Collapsible
@@ -35,18 +38,35 @@ export const TrendingCoinsTable = () => {
             <TableHead className="text-right w-[20%]">24 H</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
-          {data?.slice(0, 5).map((coin) => <TrendingCoin key={coin.coin_id} data={coin} />)}
-        </TableBody>
-        <CollapsibleContent asChild>
-          <TableBody>
-            {data?.slice(5).map((coin) => <TrendingCoin key={coin.coin_id} data={coin} />)}
+        {isPending || isError ? (
+          <TableBody className="h-[280px]">
+            <TableRow>
+              <TableCell colSpan={4} className="text-center">
+                <div className="w-full flex justify-center py-4">
+                  {isPending && <Spinner size="medium" />}
+                  {isError && <ErrorMessage>Couldn&apos;t fetch coins</ErrorMessage>}
+                </div>
+              </TableCell>
+            </TableRow>
           </TableBody>
-        </CollapsibleContent>
+        ) : (
+          <>
+            <TableBody>
+              {data?.slice(0, 5).map((coin) => <TrendingCoin key={coin.coin_id} data={coin} />)}
+            </TableBody>
+            <CollapsibleContent asChild>
+              <TableBody>
+                {data?.slice(5).map((coin) => <TrendingCoin key={coin.coin_id} data={coin} />)}
+              </TableBody>
+            </CollapsibleContent>
+          </>
+        )}
       </Table>
-      <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary hover:text-[#727272]">
-        {isOpen ? 'less' : 'more'}
-      </CollapsibleTrigger>
+      {!isPending && !isError && (
+        <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary hover:text-[#727272]">
+          {isOpen ? 'less' : 'more'}
+        </CollapsibleTrigger>
+      )}
     </Collapsible>
   )
 }

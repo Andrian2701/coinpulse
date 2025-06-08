@@ -5,8 +5,8 @@ import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group'
 import { useTheme } from 'next-themes'
 
 interface Props {
-  timeRange: TimeRange
-  setTimeRange: Dispatch<SetStateAction<TimeRange>>
+  timeRange: TimeRange | null
+  setTimeRange: Dispatch<SetStateAction<TimeRange | null>>
 }
 
 const timeRanges = [

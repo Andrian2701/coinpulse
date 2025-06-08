@@ -4,9 +4,12 @@ import Image from 'next/image'
 import CountUp from 'react-countup'
 
 import { useGlobals } from '@/hooks/use-globals'
+import { ErrorMessage } from '../index'
 
 export const MarketShareList = () => {
-  const { data } = useGlobals()
+  const { data, isError } = useGlobals()
+
+  console.log(isError)
 
   return (
     <div className="flex justify-between flex-col md:flex-row gap-4">
@@ -21,12 +24,16 @@ export const MarketShareList = () => {
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Bitcoin (BTC)</span>
           <span className="text-[16px] font-bold text-text-primary">
-            <CountUp
-              start={0.0}
-              end={Number(data?.market_cap_percentage.btc)}
-              decimals={2}
-              suffix=" %"
-            />
+            {!isError ? (
+              <CountUp
+                start={0.0}
+                end={Number(data?.market_cap_percentage.btc)}
+                decimals={2}
+                suffix=" %"
+              />
+            ) : (
+              <ErrorMessage>Couldn&apos;t fetch percentages</ErrorMessage>
+            )}
           </span>
         </div>
       </div>
@@ -41,12 +48,16 @@ export const MarketShareList = () => {
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Ethereum (ETH)</span>
           <span className="text-[16px] font-bold text-text-primary">
-            <CountUp
-              start={0.0}
-              end={Number(data?.market_cap_percentage.eth)}
-              decimals={2}
-              suffix=" %"
-            />
+            {!isError ? (
+              <CountUp
+                start={0.0}
+                end={Number(data?.market_cap_percentage.eth)}
+                decimals={2}
+                suffix=" %"
+              />
+            ) : (
+              <ErrorMessage>Couldn&apos;t fetch percentages</ErrorMessage>
+            )}
           </span>
         </div>
       </div>
@@ -61,12 +72,16 @@ export const MarketShareList = () => {
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Tether (USDT)</span>
           <span className="text-[16px] font-bold text-text-primary">
-            <CountUp
-              start={0.0}
-              end={Number(data?.market_cap_percentage.usdt)}
-              decimals={2}
-              suffix=" %"
-            />
+            {!isError ? (
+              <CountUp
+                start={0.0}
+                end={Number(data?.market_cap_percentage.usdt)}
+                decimals={2}
+                suffix=" %"
+              />
+            ) : (
+              <ErrorMessage>Couldn&apos;t fetch percentages</ErrorMessage>
+            )}
           </span>
         </div>
       </div>

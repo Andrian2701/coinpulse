@@ -45,7 +45,7 @@ export enum TimeRange {
 
 export interface CoinPriceParamsInterface {
   coin: string
-  days: TimeRange
+  days: TimeRange | null
 }
 
 export interface NewArticleInterface {

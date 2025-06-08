@@ -1,6 +1,6 @@
 import { CoinPriceType, TimeRange } from '@/types/coins-types'
 
-export const useFormattedCoinPrices = (coinPrice: CoinPriceType[], timeRange: number) => {
+export const useFormattedCoinPrices = (coinPrice: CoinPriceType[], timeRange: number | null) => {
   const priceMapByTime = new Map<number | string, { time: string | number; price: number }>()
   let formatedTime: string | number
 

@@ -10,14 +10,24 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { CoinInterface } from '@/types/coins-types'
+import { ErrorMessage } from '../error-message'
+import { Spinner } from '../ui/spinner'
 
 interface Props {
   selectedCoinId: string
   setSelectedCoinId: Dispatch<SetStateAction<string>>
-  coinList: CoinInterface[]
+  coinList: CoinInterface[] | null | undefined
+  isPending: boolean
+  isError: boolean
 }
 
-export const CoinSelect = ({ selectedCoinId, setSelectedCoinId, coinList }: Props) => {
+export const CoinSelect = ({
+  selectedCoinId,
+  setSelectedCoinId,
+  coinList,
+  isPending,
+  isError,
+}: Props) => {
   const selectedCoin = useMemo(
     () => coinList?.find((coin) => coin.id === selectedCoinId),
     [coinList, selectedCoinId]
@@ -43,18 +53,21 @@ export const CoinSelect = ({ selectedCoinId, setSelectedCoinId, coinList }: Prop
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {coinList?.map((coin) => (
-            <SelectItem key={coin.id} value={coin.id}>
-              <Image
-                src={coin.image}
-                alt={coin.name}
-                width={20}
-                height={20}
-                className="rounded-full"
-              />
-              {`${coin.name} (${coin.symbol.toUpperCase()})`}
-            </SelectItem>
-          ))}
+          {isError && <ErrorMessage>Couldn&apos;t fetch coins</ErrorMessage>}
+          {isPending && <Spinner size="small" />}
+          {coinList &&
+            coinList.map((coin) => (
+              <SelectItem key={coin.id} value={coin.id}>
+                <Image
+                  src={coin.image}
+                  alt={coin.name}
+                  width={20}
+                  height={20}
+                  className="rounded-full"
+                />
+                {`${coin.name} (${coin.symbol.toUpperCase()})`}
+              </SelectItem>
+            ))}
         </SelectGroup>
       </SelectContent>
     </Select>
