@@ -59,10 +59,8 @@ class CoinsService {
   async getNews(): Promise<NewArticleInterface[] | null> {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL_NDIO}?apikey=${process.env.NEXT_PUBLIC_API_KEY_NDIO}&q=crypto&language=en`
+        `https://newsdata.io/api/1/latest?apikey=pub_d9d9eb80839348579fec77206b836285&q=crypto&language=en`
       )
-      console.log('Public API:', process.env.NEXT_PUBLIC_API_URL_NDIO)
-      console.log('Public KEY:', process.env.NEXT_PUBLIC_API_KEY_NDIO)
 
       return res.status === 200 ? res.data.results : null
     } catch (error) {

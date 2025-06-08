@@ -3,7 +3,7 @@ import { ThemeSwitch } from '../theme-switch'
 
 export const Header = () => {
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between px-2">
       <Logo />
       <ThemeSwitch />
     </header>

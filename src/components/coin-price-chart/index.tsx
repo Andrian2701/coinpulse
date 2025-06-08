@@ -16,14 +16,18 @@ import { useCoinList } from '@/hooks/use-coin-list'
 import { useFormattedCoinPrices } from '@/hooks/use-format-coin-price'
 import { useCoinPrice } from '@/hooks/use-coin-price'
 import { TimeRange } from '@/types/coins-types'
+import { useTheme } from 'next-themes'
 
 export const CoinPriceChart = () => {
   const [selectedCoinId, setSelectedCoinId] = useState('bitcoin')
   const [timeRange, setTimeRange] = useState(TimeRange.day)
 
+  const { resolvedTheme } = useTheme()
   const { data: coinList } = useCoinList()
   const { data: coinPrice } = useCoinPrice({ coin: selectedCoinId, days: timeRange })
   const formattedPrices = useFormattedCoinPrices(coinPrice ?? [], timeRange)
+
+  const isDarkTheme = resolvedTheme === 'dark'
 
   const formatPrice = (price: number): string => {
     if (price >= 1000) {
@@ -64,17 +68,25 @@ export const CoinPriceChart = () => {
           />
           <Tooltip
             formatter={(value: number) => [`$${formatPrice(value)}`, 'Price']}
-            contentStyle={{
-              border: '1px solid #e5e7eb',
-              borderRadius: '9px',
-              color: '#fff',
-            }}
+            contentStyle={
+              isDarkTheme
+                ? {
+                    border: '1px solid #5c5c61',
+                    borderRadius: '9px',
+                    background: '#0f0f0f',
+                  }
+                : {
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '9px',
+                    background: '#fff',
+                  }
+            }
             labelStyle={{
               color: '#5c5c61',
               fontSize: '12px',
             }}
             itemStyle={{
-              color: '#2c2c2e',
+              color: isDarkTheme ? '#fff' : '#2c2c2e',
               fontSize: '14px',
             }}
           />

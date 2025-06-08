@@ -35,7 +35,7 @@ export const TimeRangeToggle = ({ timeRange, setTimeRange }: Props) => {
           className={
             timeRange === item.value
               ? `${resolvedTheme === 'dark' || resolvedTheme === 'system' ? 'bg-text-secondary text-white' : 'bg-border'}`
-              : ''
+              : `${resolvedTheme === 'dark' || resolvedTheme === 'system' ? 'hover:bg-text-secondary hover:text-white' : 'hover:bg-border hover:text-text-secondary'}`
           }
         >
           {item.label}

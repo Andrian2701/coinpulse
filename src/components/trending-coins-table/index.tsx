@@ -26,13 +26,13 @@ export const TrendingCoinsTable = () => {
       className="w-full border border-border rounded-lg p-4"
     >
       <Table>
-        <TableCaption>Trending List</TableCaption>
+        <TableCaption>Trending Coins</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[30%]">Name</TableHead>
             <TableHead className="text-center w-[20%]">Value</TableHead>
             <TableHead className="text-center w-[30%]">Total Volume</TableHead>
-            <TableHead className="text-right w-[20%]">24H</TableHead>
+            <TableHead className="text-right w-[20%]">24 H</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -44,7 +44,7 @@ export const TrendingCoinsTable = () => {
           </TableBody>
         </CollapsibleContent>
       </Table>
-      <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary">
+      <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary hover:text-[#727272]">
         {isOpen ? 'less' : 'more'}
       </CollapsibleTrigger>
     </Collapsible>

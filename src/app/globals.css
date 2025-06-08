@@ -7,6 +7,7 @@
   --color-text-primary: #0f0f0f;
   --color-text-secondary: #5c5c61;
   --color-border: #e5e7eb;
+  --color-item-hover: #f2f2f2;
 }
 
 @layer theme {
@@ -15,5 +16,6 @@
     --color-text-primary: #fff;
     --color-text-secondary: #5c5c61;
     --color-border: #5c5c61;
+    --color-item-hover: #363636;
   }
 }
