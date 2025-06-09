@@ -10,6 +10,7 @@ import { NewArticle } from './new-article'
 import { ThemeSwitch } from './theme-switch'
 import { ErrorMessage } from './error-message'
 import { Footer } from './footer'
+import { GlobalsCard } from './globals-card'
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   ThemeSwitch,
   ErrorMessage,
   Footer,
+  GlobalsCard,
 }

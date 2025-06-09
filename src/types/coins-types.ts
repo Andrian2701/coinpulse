@@ -23,6 +23,8 @@ export interface GlobalsInterface {
   total_volume: {
     usd: number
   }
+  market_cap_change_percentage_24h_usd: number
+  markets: number
 }
 
 export interface CoinInterface {
@@ -50,7 +52,6 @@ export interface CoinPriceParamsInterface {
 
 export interface NewArticleInterface {
   article_id: string
-  image_url: string
   pubDate: Date
   title: string
 }

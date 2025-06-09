@@ -9,8 +9,6 @@ import { ErrorMessage } from '../index'
 export const MarketShareList = () => {
   const { data, isError } = useGlobals()
 
-  console.log(isError)
-
   return (
     <div className="flex justify-between flex-col md:flex-row gap-4">
       <div className="p-8 w-full h-[125px] border border-border flex items-center justify-start gap-4 rounded-lg">
@@ -23,7 +21,7 @@ export const MarketShareList = () => {
         />
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Bitcoin (BTC)</span>
-          <span className="text-[16px] font-bold text-text-primary">
+          <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
                 start={0.0}
@@ -47,7 +45,7 @@ export const MarketShareList = () => {
         />
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Ethereum (ETH)</span>
-          <span className="text-[16px] font-bold text-text-primary">
+          <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
                 start={0.0}
@@ -71,7 +69,7 @@ export const MarketShareList = () => {
         />
         <div className="flex flex-col gap-4">
           <span className="text-text-secondary text-[12px]">Tether (USDT)</span>
-          <span className="text-[16px] font-bold text-text-primary">
+          <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
                 start={0.0}
