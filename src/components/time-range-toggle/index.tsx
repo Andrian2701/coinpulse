@@ -25,7 +25,7 @@ export const TimeRangeToggle = ({ timeRange, setTimeRange }: Props) => {
       className="w-full sm:w-auto overflow-x-scroll pb-2"
       defaultValue={String(timeRange)}
       value={String(timeRange)}
-      onValueChange={(timeRange) => setTimeRange(+timeRange)}
+      onValueChange={(timeRange) => timeRange && setTimeRange(+timeRange)}
     >
       {timeRanges.map((item) => (
         <ToggleGroupItem

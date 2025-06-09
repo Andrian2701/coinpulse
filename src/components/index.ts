@@ -9,6 +9,7 @@ import { TableHeading } from './table-heading'
 import { NewArticle } from './new-article'
 import { ThemeSwitch } from './theme-switch'
 import { ErrorMessage } from './error-message'
+import { Footer } from './footer'
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   NewArticle,
   ThemeSwitch,
   ErrorMessage,
+  Footer,
 }

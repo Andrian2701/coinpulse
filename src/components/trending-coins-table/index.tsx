@@ -63,9 +63,11 @@ export const TrendingCoinsTable = () => {
         )}
       </Table>
       {!isPending && !isError && (
-        <CollapsibleTrigger className="w-full flex items-center justify-end cursor-pointer text-[12px] text-text-primary hover:text-[#727272]">
-          {isOpen ? 'less' : 'more'}
-        </CollapsibleTrigger>
+        <span className="flex justify-end w-auto">
+          <CollapsibleTrigger className="flex items-center justify-end cursor-pointer text-[12px] text-text-primary hover:text-[#727272]">
+            {isOpen ? 'less' : 'more'}
+          </CollapsibleTrigger>
+        </span>
       )}
     </Collapsible>
   )
