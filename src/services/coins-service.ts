@@ -5,9 +5,7 @@ import {
   CoinInterface,
   CoinPriceType,
   CoinPriceParamsInterface,
-  NewArticleInterface,
 } from '@/types/coins-types'
-import axios from 'axios'
 
 class CoinsService {
   async getTrendingCoins(): Promise<{ item: TrendingCoinInterface }[] | null> {
@@ -65,24 +63,7 @@ class CoinsService {
         throw new Error()
       }
 
-      return res.status === 200 ? res.data.prices : null
-    } catch (error) {
-      console.error(error)
-      throw error
-    }
-  }
-
-  async getNews(): Promise<NewArticleInterface[] | null> {
-    try {
-      const res = await axios.get(
-        `https://newsdata.io/api/1/latest?apikey=pub_d9d9eb80839348579fec77206b836285&q=crypto&language=en`
-      )
-
-      if (res.data?.error) {
-        throw new Error()
-      }
-
-      return res.status === 200 ? res.data.results : null
+      return res.status === 200 ? res.data : null
     } catch (error) {
       console.error(error)
       throw error

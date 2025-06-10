@@ -19,11 +19,12 @@ export const GlobalsCard = ({ title }: { title: string }) => {
         </ErrorMessage>
       )}
       {isSuccess && isMarkets ? (
-        <CountUp start={0.0} end={data?.markets || 0} />
+        <CountUp key={data?.markets} start={0.0} end={data?.markets as number} />
       ) : (
         <CountUp
+          key={data?.market_cap_change_percentage_24h_usd}
           start={0.0}
-          end={data?.market_cap_change_percentage_24h_usd || 0}
+          end={data?.market_cap_change_percentage_24h_usd as number}
           decimals={2}
           suffix=" %"
         />

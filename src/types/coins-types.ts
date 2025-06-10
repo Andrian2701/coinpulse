@@ -43,15 +43,26 @@ export enum TimeRange {
   month = 30,
   year = 365,
 }
+
+export enum CoinPriceMetricsEnum {
+  prices = 'prices',
+  caps = 'market_caps',
+  volumes = 'total_volumes',
+}
+
+export enum ChartTypeEnum {
+  line = 'line',
+  bar = 'bar',
+}
+
+export enum ThemeEnum {
+  light = 'light',
+  dark = 'dark',
+  system = 'system',
+}
 /* eslint-enable no-unused-vars */
 
 export interface CoinPriceParamsInterface {
   coin: string
   days: TimeRange | null
-}
-
-export interface NewArticleInterface {
-  article_id: string
-  pubDate: Date
-  title: string
 }

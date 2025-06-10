@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
-
-import { TimeRange } from '@/types/coins-types'
-import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group'
 import { useTheme } from 'next-themes'
+
+import { ThemeEnum, TimeRange } from '@/types/coins-types'
+import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group'
 
 interface Props {
   timeRange: TimeRange | null
@@ -34,8 +34,8 @@ export const TimeRangeToggle = ({ timeRange, setTimeRange }: Props) => {
           aria-label={`Toggle ${item.value}`}
           className={
             timeRange === item.value
-              ? `${resolvedTheme === 'dark' || resolvedTheme === 'system' ? 'bg-text-secondary text-white' : 'bg-border'}`
-              : `${resolvedTheme === 'dark' || resolvedTheme === 'system' ? 'hover:bg-text-secondary hover:text-white' : 'hover:bg-border hover:text-text-secondary'}`
+              ? `${resolvedTheme === ThemeEnum.dark || resolvedTheme === ThemeEnum.system ? 'bg-text-secondary text-white' : 'bg-border'}`
+              : `${resolvedTheme === ThemeEnum.dark || resolvedTheme === ThemeEnum.system ? 'hover:bg-text-secondary hover:text-white' : 'hover:bg-border hover:text-text-secondary'}`
           }
         >
           {item.label}

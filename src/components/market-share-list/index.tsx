@@ -24,6 +24,7 @@ export const MarketShareList = () => {
           <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
+                key={data?.market_cap_percentage.btc}
                 start={0.0}
                 end={Number(data?.market_cap_percentage.btc)}
                 decimals={2}
@@ -48,6 +49,7 @@ export const MarketShareList = () => {
           <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
+                key={data?.market_cap_percentage.eth}
                 start={0.0}
                 end={Number(data?.market_cap_percentage.eth)}
                 decimals={2}
@@ -72,6 +74,7 @@ export const MarketShareList = () => {
           <span className="text-[16px] text-text-primary">
             {!isError ? (
               <CountUp
+                key={data?.market_cap_percentage.usdt}
                 start={0.0}
                 end={Number(data?.market_cap_percentage.usdt)}
                 decimals={2}
