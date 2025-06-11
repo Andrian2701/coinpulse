@@ -1,4 +1,10 @@
+import { Metadata } from 'next'
+
 import { CoinPriceChart, GlobalsCard, MarketShareList, TrendingCoinsTable } from '@/components'
+
+export const metadata: Metadata = {
+  title: 'My Analytics',
+}
 
 export default async function Home() {
   return (
