@@ -1,6 +1,11 @@
 import { Metadata } from 'next'
 
-import { CoinPriceChart, GlobalsCard, MarketShareList, TrendingCoinsTable } from '@/components'
+import {
+  CoinPriceChart,
+  GlobalsCard,
+  MarketShareList,
+  TrendingCoinsTable,
+} from '@/features /charts/components'
 
 export const metadata: Metadata = {
   title: 'My Analytics',

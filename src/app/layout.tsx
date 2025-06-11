@@ -2,9 +2,9 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 
-import { Footer, Header } from '@/components'
 import { ReactQueryProvider } from '@/lib/react-query-provider'
 import { ThemeProvider } from '@/lib/theme-provider'
+import { Footer, Header } from '@/shared/components'
 import './globals.css'
 
 const roboto = Roboto({
